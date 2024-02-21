@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ghcr.io/kt-cloudnative/vue_crud_security_keycloak:v1
+        image: ghcr.io/kyleee0522/vue_crud_security_keycloak:v3
         imagePullPolicy: Always
         env:
         - name: BACKEND_API_URL
-          value: "backend" 
+          value: "backend-keycloak" 
         ports:
         - containerPort: 80
 ---
@@ -50,7 +50,7 @@ spec:
 #    secretName: edu-tls
 #    # kubectl create secret tls edu-tls --cert /certs/wildcard-cert.pem --key /certs/wildcard-key.pem -n default
   rules:
-  - host: frontend-keycloak2.kteducation.duckdns.org
+  - host: frontend-keycloak2.10150393.duckdns.org
     http:
       paths:
       - path: /
