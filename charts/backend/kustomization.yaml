@@ -3,3 +3,6 @@ kind: Kustomization
 resources:
 - backend-deployment.yaml
 - backend-svc.yaml
+images:
+- name: ghcr.io/kyleee0522/springboot_crud_security_keycloak
+  newTag: "20240221045029"
