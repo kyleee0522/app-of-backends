@@ -1,2 +1,4 @@
 # app of apps
-ArgoCD App-of-Apps 패턴 ( Front / Backend / DB )
+app-of-backends
+query : 8082
+command :8081
