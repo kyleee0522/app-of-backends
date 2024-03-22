@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: frontend-with-keycloak
+  name: query
   namespace: argocd
   # Add a this finalizer ONLY if you want these to cascade delete.
   finalizers:
@@ -11,9 +11,9 @@ spec:
   project: default
   
   source:
-    repoURL: https://github.com/kyleee0522/app-of-apps-keycloak.git
+    repoURL: https://github.com/kyleee0522/app-of-backends.git
     targetRevision: HEAD
-    path: charts/frontend
+    path: charts/query
   
   destination:
     server: https://kubernetes.default.svc
