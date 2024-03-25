@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- command-deployment.yaml
+- command-svc.yaml
+images:
+- name: ghcr.io/kyleee0522/springboot_crud_security_aop_command
+  newTag: "v1"
