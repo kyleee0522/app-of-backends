@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: command
+  namespace: argocd
+  # Add a this finalizer ONLY if you want these to cascade delete.
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+  
+  source:
+    repoURL: https://github.com/kyleee0522/app-of-backends.git
+    targetRevision: HEAD
+    path: charts/command
+  
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+    
+  syncPolicy:
+    automated: 
+      prune: true 
+      selfHeal: true   
+    # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.  
+    syncOptions:
+      - CreateNamespace=false   
