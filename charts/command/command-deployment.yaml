@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-command
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: backend-command
+  template:
+    metadata:
+      labels:
+        app: backend-command
+    spec:
+      containers:
+        - name: backend-command
+          image: ghcr.io/kyleee0522/springboot_crud_security_aop_command:v1
+          imagePullPolicy: Always
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prd"
+            - name: SERVER_PORT
+              value: "8081"
+          ports:
+            - containerPort: 8081
+      imagePullSecrets:
+        - name: argo-secret
