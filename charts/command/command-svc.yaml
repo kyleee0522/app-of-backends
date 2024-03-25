@@ -1,0 +1,11 @@
+apiVersion: v1	
+kind: Service	
+metadata:	
+  name: backend-command
+spec:	
+  ports:	
+  - port: 80	
+    targetPort: 8081
+  selector:	
+    app: backend-command
+  type: NodePort
